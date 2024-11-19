@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 function TodoListPage() {
   const [inputValue, setInputValue] = useState("");
   const [tasks, setTasks] = useState([]);
