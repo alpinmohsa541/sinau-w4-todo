@@ -14,6 +14,10 @@ function TodoListPage() {
     }
   };
 
+  const handleDeleteTask = (index) => {
+    const newTasks = tasks.filter((task, i) => i !== index);
+    setTasks(newTasks); // Menghapus tugas berdasarkan index
+  };
   return (
     <>
     
@@ -25,11 +29,24 @@ function TodoListPage() {
           placeholder="Enter a new task"
           style={{ padding: "8px", marginRight: "10px", width: "250px" }}
         />
-        <button onClick={handleAddTask}>Tambah</button>
+        <button
+        onClick={handleAddTask}
+        style={{
+          padding: "8px 16px",
+          cursor: "pointer",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+        }}
+      >
+        Tambah
+      </button>
         <ul style={{ marginTop: "20px" }}>
         {tasks.map((task, index) => (
-          <li key={index}>{task}</li>
+          <li key={index}>{task}<button onClick={() => handleDeleteTask(index)}>Hapus</button></li>
         ))}
+        
       </ul>
     </div>
     </>
