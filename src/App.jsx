@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+function TodoListPage() {
+  const [inputValue, setInputValue] = useState("");
+  const [tasks, setTasks] = useState([]);
 
-function App() {
-  const [count, setCount] = useState(0)
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleAddTask = () => {
+    if (inputValue.trim()) {
+      setTasks([...tasks, inputValue]);
+      setInputValue(""); // Clear input setelah menambahkan
+    }
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }} >
+      <input
+          type="text"
+          value={inputValue}
+          onChange={handleInputChange}
+          placeholder="Enter a new task"
+          style={{ padding: "8px", marginRight: "10px", width: "250px" }}
+        />
+        <button onClick={handleAddTask}>Tambah</button>
+        <ul style={{ marginTop: "20px" }}>
+        {tasks.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
+      </ul>
+    </div>
     </>
   )
 }
 
-export default App
+export default TodoListPage
