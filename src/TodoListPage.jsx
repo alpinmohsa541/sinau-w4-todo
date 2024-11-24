@@ -82,7 +82,7 @@ function TodoListPage() {
           width: "100%",
           maxWidth: "400px",
         }}
-      >
+      > 
         {/* Input dan tombol tambah */}
         <input
           type="text"
@@ -92,7 +92,7 @@ function TodoListPage() {
           style={{
             padding: "8px",
             marginRight: "20px",
-            width: "295px",
+            width: "290px",
             border: "1px solid #ccc",
             borderRadius: "4px",
           }}
