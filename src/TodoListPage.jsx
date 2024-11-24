@@ -91,8 +91,8 @@ function TodoListPage() {
           placeholder="Enter a new task"
           style={{
             padding: "8px",
-            marginRight: "10px",
-            width: "250px",
+            marginRight: "20px",
+            width: "295px",
             border: "1px solid #ccc",
             borderRadius: "4px",
           }}
@@ -154,7 +154,7 @@ function TodoListPage() {
                   padding: "4px 8px",
                 }}
               >
-                Hapus
+                Delete
               </button>
             </li>
           ))}
